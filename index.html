@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Meme Maker</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="color-options">
+        <!-- 2. 색깔 input을 만들었어 -->
+        <input type="color" id="color" />
+        <!-- 3. 하지만 직접 예쁜 색상을 찾기 어려우니까, 사용자가 리스트 안에서 고를 수 있도록 많은 div를 만들고 각각 style에 color를 지정해주었어 -->
+        <!-- 그리고 data 어트리뷰트에 색상 코드를 넣어줬지
+        html에서 이 어트리뷰트를 사용하면 원하는 문자열 어떤 값이든 넣어줄 수 있어
+        html에 데이터를 넣어주고, 나중에 자바스크립트에서 사용할 일이 있을 때 쓰면 돼 -->
+        <div
+        class="color-option"
+        style="background-color: #1abc9c"
+        data-color="#1abc9c"
+        ></div>
+        <div
+        class="color-option"
+        style="background-color: #3498db"
+        data-color="#3498db"
+        ></div>
+        <div
+        class="color-option"
+        style="background-color: #34495e"
+        data-color="#34495e"
+        ></div>
+        <div
+        class="color-option"
+        style="background-color: #27ae60"
+        data-color="#27ae60"
+        ></div>
+        <div
+        class="color-option"
+        style="background-color: #8e44ad"
+        data-color="#8e44ad"
+        ></div>
+        <div
+        class="color-option"
+        style="background-color: #f1c40f"
+        data-color="#f1c40f"
+        ></div>
+        <div
+        class="color-option"
+        style="background-color: #e74c3c"
+        data-color="#e74c3c"
+        ></div>
+        <div
+        class="color-option"
+        style="background-color: #95a5a6"
+        data-color="#95a5a6"
+        ></div>
+        <div
+        class="color-option"
+        style="background-color: #d35400"
+        data-color="#d35400"
+        ></div>
+        <!-- <div
+        class="color-option"
+        style="background-color: #bdc3c7"
+        data-color="#bdc3c7"
+        ></div> -->
+        <div
+        class="color-option"
+        style="background-color: #2ecc71"
+        data-color="#2ecc71"
+        ></div>
+        <div
+        class="color-option"
+        style="background-color: #e67e22"
+        data-color="#e67e22"
+        ></div>
+    </div>
+
+    <canvas></canvas>
+    <div class="btns">
+        <span class="nametagspan">
+            Pencil Width
+            <!-- 1. range input 
+            숫자 값으로 수정이 가능하고, 이 값의 최소와 최대를 조절할 수 있어
+            또한 단계를 어느정도 증가, 감소할 수 있는지 정할 수 있어
+            이 inputdmf js에서 lineWidth input으로 사용했어. -->
+            <input id="line-width" type="range" min="1" max="10" value="5" step="0.1" />
+            </span>    
+        <!-- 4. mode-btn이라는 버튼을 만들었어
+        이 버튼은 처음 시작할 때, Fill이라는 텍스트를 가지고 있어
+        여기서 자바스크립트 코드에서 이 버튼을 가져와 이벤트리스너를 추가했어 -->
+        <button id="mode-btn">🩸 Fill</button>
+
+        <!-- 5.  -->
+        <button id="destroy-btn">💣 Destroy</button>
+
+        <!-- 6.  -->
+        <button id="eraser-btn">❌ Eraser</button>
+
+        <!-- 7. 이미지 파일만 선택할 수 있도록 설정했어 -->
+        <!-- label태그를 이용하면 input을 클릭한 것처럼 만들 수 있어 label의 for값과 input의 id값이 같으면 'Add Photo' 택스트를 클릭했을 때, input을 실행시키는 거야 -->
+        <label for="file">
+            💅🏻 Add Photo
+            <input type="file" accept="image/*" id="file"/>
+        </label>
+
+        <span class="nametagspan">Font Style</span>
+        <select id="font-select">
+            <option value="arial">Arial</option>
+            <option value="verdana">Verdana</option>
+            <option value="tahoma">Tahoma</option>
+            <option value="courier New">Courier New</option>
+            <option value="times New Roman">Times New Roman</option>
+        </select>
+        <span class="nametagspan">
+            Font Size
+            <input type="range" class="rangeStyle" id="font-size" min="5" max="100" value="40" step="0.5"/>
+        </span>
+        <!-- 8.  -->
+        <input type="text" placeholder="write and double click canvas!" id="text"/>
+
+        <div id="strokefill_btn">
+            <button id="fill-text-btn">Fill Text</button>
+            <button id="stroke-text-btn">Stroke Text</button>
+        </div>
+    
+        <!-- 9. 이 버튼을 누르면 현재 캔버스에 있는 이미지를 저장해줄 거야 -->
+        <button id="save">🖼️ Save image</button>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
